@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+	<head>
+		<title>CefetFlix</title>
+		<meta charset="utf-8"/>
+		<script src="./js/jquery.min.js">
+		</script>
+		<script src="./js/filmes.js">
+		</script>
+		<link rel="stylesheet" type="text/css" href="./css/estilo.css"/>
+		<script>
+			$(function(){
+				$.each( filmes, function(index, filme){
+					var $ulGenero = $("<ul/>");
+					$.each(filme.generos, function(i, obj){
+					console.log(obj);
+						$ulGenero.append($("<li />").text(obj))				 
+					});
+			
+					
+					var $ulRating = $("<ul/>");
+					$.each(filme.opinoes, function(i, obj){
+						$ulRating.append($("<li />").text(obj.descricao))				 
+					});
+					$(".catalogo")
+						.append($("<div/>")
+							.addClass("filmes")
+							.append($("<h1/>")
+								.text(filme.titulo)
+							)
+							.append($("<img/>")
+								.attr("src",filme.figura)
+							)
+							.append($("<p/>")
+								.text(filme.resumo)
+							)
+							.append($("<div/>")
+								.addClass("filme-genero")
+								.append($ulGenero)
+							)
+							.append($("<p/>")
+								.text(filme.classificacao)
+							)
+							.append($("<p/>")
+								.text(filme.elenco)
+							)
+							.append($("<div />")
+								.append($ulRating)
+							)
+							
+							.append($("<p/>")
+								.text(filme.titulosSemelhantes)
+							)
+							
+					);
+					/*
+					
+					$(".filme-genero").text(filme.genero);
+					$(".filme-rating").text(filme.rating);
+					//$(".filme-descricao").text(filme.opiniao.descricao);
+					$(".filme-semelhantes").text(filme.semelhantes);
+					*/
+				})
+				
+			});
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<h1>CEFETFlix</h1>
+		<div class="catalogo">
+			<div class="Filmes">
+				<h1 class="filme-titulo"></h1>
+				<img src=/>
+				<p class="filme-resumo"></p>
+				<div class="filme-genero"></div>
+				<p class="filme-classificacao"></p>
+				<p class="filme-elenco"></p>
+				<div class="filme-rating"></div>
+				<div class="filme-descricao"></div>
+				<p class="filme-semelhantes"></p>
+				
+
+			</div>
+		</div>
+	
+	</body>
+
+</html>
